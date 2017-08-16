@@ -10,3 +10,56 @@ int main (void)
     while(1);
     return 0;
  }
+ 
+---------------------------------------------
+//Hello Wordl
+#include <msp430g2553.h>
+#define LED1 BIT0
+#define LED2 BIT6
+void main (void)
+{
+    WDTCTL = WDTPW+WDTHOLD;
+    P1DIR = LED1 + LED2;
+    P1OUT = LED1 + LED2;
+    while(1);
+ }
+
+-----------------------------------------------
+
+#include <msp430g2553.h>
+#define LEDS (BIT0 + BIT6)
+#define BTN BIT3
+void main (void)
+{
+    WDTCTL = WDTPW+WDTHOLD;
+    P1DIR = LEDS;
+     while(1);
+     {
+        if((P1IN&BTN)==0)
+            P1OUT |= LEDS;
+        else
+            P1OUT = 0;
+      }
+ }
+ 
+ 
+ 
+ 
+ -------------------------------------------------
+ 
+#include <msp430g2553.h>
+#define LEDS (BIT0 + BIT6)
+#define BTN BIT3
+void main (void)
+{
+    WDTCTL = WDTPW+WDTHOLD;
+    P1DIR = LEDS;
+     while(1);
+     {
+        while((P1IN&BTN)==0);
+            P1OUT &= ~LEDS;
+            while((P1IN&BTN)!=0);
+            P1OUT |= LEDS;
+      }
+ }
+
