@@ -1,0 +1,12 @@
+###LIGAR LED
+
+//Hello Wordl
+#include <msp430g2553.h>
+int main (void)
+{
+    WDTCTL = WDTPW+WDTHOLD;
+    P1DIR = 0X41;
+    P1OUT = 0X41;
+    while(1);
+    return 0;
+ }
