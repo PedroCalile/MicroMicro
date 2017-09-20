@@ -9,8 +9,8 @@ utilizando o seguinte algoritmo: após 'n+1' iterações, a raiz quadrada de 'S'
 	x(n+1) = (x(n) + S/x(n))/2
 
 O protótipo da função é:
-  #include <stdio.h>
-	float Raiz_Quadrada(float S);
+ 
+  float Raiz_Quadrada(float S);
   {
     int i;
     float RQ=1.0;
@@ -57,7 +57,15 @@ FIM_LOOP1:
 
 2. (a) Escreva uma função em C que calcule 'x' elevado à 'N'-ésima potência, seguindo o seguinte protótipo: 
 
-	int Potencia(int x, int N);
+int Potencia(int x, int N);
+{ 
+  int i,POT=1; 
+  for(i=1;i<=N;i++)
+    { 
+    POT=x*POT; 
+    } 
+  return POT; 
+}
 
 (b) Escreva a sub-rotina equivalente na linguagem Assembly do MSP430. 'x' e 'n' são fornecidos através dos registradores R15 e R14, 
 respectivamente, e a saída deverá ser fornecida no registrador R15.
@@ -142,7 +150,16 @@ FIM_LOOP4
 5. (a) Escreva uma função em C que indica a primalidade de uma variável inteira sem sinal, retornando o valor 1 se o número for primo, 
 e 0, caso contrário. Siga o seguinte protótipo:
 
-	int Primalidade(unsigned int x);
+int Primalidade(unsigned int x);
+{
+  int p= x - 1;   
+  while (p > 1) {
+      if (x % p == 0)
+      return 0;
+      p--;      
+  }
+  return 1;
+}
 
 (b) Escreva a sub-rotina equivalente na linguagem Assembly do MSP430. A variável de entrada é fornecida pelo registrador R15, 
 e o valor de saída também.
@@ -182,6 +199,23 @@ e se n for par, n!! = 2*4*6*...*n. Por exemplo, 9!! = 1*3*5*7*9 = 945 e 10!! = 2
 O protótipo da função é:
 
 	unsigned long long DuploFatorial(unsigned long long n);
+	{
+    float f=1,aux;
+    int i=0,e=0,b=0;
+
+    if (n>=1)
+        for(i=1;i<=n;i++){
+            for(e=1;e<=n;e++){
+                b=b+1;
+            }
+                for(i=1;i<=b;i++){
+                f=f*i;
+                }
+        f=(1/f)+1+aux;
+        aux=f;
+        }
+    return f;
+}
 
 7. (a) Escreva uma função em C que calcula a função exponencial da seguinte forma:
 	
