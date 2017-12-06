@@ -1,20 +1,48 @@
-Data: 22/03/2017
+#define BITOP(a,b,op) \
+ ((a)[(size_t)(b)/(8*sizeof *(a))] op (size_t)1<<((size_t)(b)%(8*sizeof *(a))))
+// Sintaxe BITOP(v, pos, operacao)
+// v = variavel que tera os bits manipulados, que sera tratada como um vetor
+// pos = posicao bit dentro do vetor que voce deseja fazer algo
+// operacao = operação que sera realizada sendo:
+//            |= para setar o bit
+//            ^= mudar o valor do bit
+//            &  testar o bit (sendo que o retorno é 0, caso o bit for 0
+//                                                   2^pos, caso o bit for 1)
+//            &=~ limpar os bits
+// BITOP retorna um long int
+
 
 1. Dada uma variável 'a' do tipo 'char' (um byte), escreva os trechos de código em C para:
 	(a) Somente setar o bit menos significativo de 'a'.
 	
+	BITOP(&c, a, |=); // setei o bit a
+	printf("%d\n", c);
+
 	
 	(b) Somente setar dois bits de 'a': o menos significativo e o segundo menos significativo.
+	BITOP(&c, a, |=); 
+	BITOP(&c, a+1, |=); 
 	
 	
 	(c) Somente zerar o terceiro bit menos significativo de 'a'.
+
+	BITOP(&c, a+3, &=~); 
 	
 	
 	(d) Somente zerar o terceiro e o quarto bits menos significativo de 'a'.
+	BITOP(&c, a+3, &=~); 
 	
 	
 	(e) Somente inverter o bit mais significativo de 'a'.
+	printf("%d\n", c);
+
+	printf("%ld\n", BITOP(&c, 2, &)); // testandoo bit 2
 	
+	printf("%ld\n", BITOP(&c, 5, &)); // testandoo bit 5
+
+
+	BITOP(&c, 2, ^=); // mudei o bit 2
+	printf("%d\n", c);
 	
 	(f) Inverter o nibble mais significativo de 'a', e setar o nibble menos significativo de 'a'.
 	
