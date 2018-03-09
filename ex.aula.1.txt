@@ -20,3 +20,4 @@ Sistemas embarcados podem ser encontrados em dispositivos simples, como uma máq
 5. Por que usamos o MSP430 na disciplina, ao invés de outro microcontrolador?
 Pelo baixo consumo de energia, rápido e simples processamento de dados.
 
+
