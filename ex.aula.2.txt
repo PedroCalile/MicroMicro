@@ -1,8 +1,10 @@
-Data: 11/08/2017
+Data: 09/03/2018
 
 Q1. Quais as diferenças entre os barramentos de dados e de endereços?
+O Barramento de Dados (Data Bus) transmite dados entre as unidades. Portanto, um microprocessador de 8 bits requer um barramento de dados de 8 linhas para transmitir dados de 8 bits em paralelo. Um barramento de endereços (address bus) é um barramento, usado por uma UCP ou por dispositivos capazes de usar DMA para informar os endereços físicos/locações de memória de um computador que o microprocessador ou dispositivo deseja acessar (ler/escrever)
 
 Q2. Quais são as diferenças entre as memórias RAM e ROM?
+A Memória de acesso aleatório (do inglês Random Access Memory, frequentemente abreviado para RAM) é um tipo de memória que permite a leitura e a escrita, utilizada como memória primária em sistemas eletrônicos digitais. Memória ROM se refere a uma memória de armazenamento que permite apenas a leitura da informação e não de sua destruição, independente da presença ou não de uma fonte de energia que a alimente.
 
 Q3. Considere o código abaixo, de 12 linhas:
 
@@ -21,12 +23,33 @@ Q3. Considere o código abaixo, de 12 linhas:
 
 Para este código, responda:
 	(a) A variável 'i' é armazenada na memória RAM ou ROM? Por quê?
+	Na memória RAM, pois é de rápida leitura e execução do cógido do programa
 	(b) O programa compilado a partir deste código é armazenado na memória RAM ou ROM? Por quê?
+	O programa é armazenado na memória ROM, pois é salvo e armazenado na memória definitiva.
 
 Q4. Quais são as diferenças, vantagens e desvantagens das arquiteturas Harvard e Von Neumann?
+A Arquitetura de von Neumann (de John von Neumann), é uma arquitetura de computador que se caracteriza pela possibilidade de uma máquina digital armazenar seus programas no mesmo espaço de memória que os dados, podendo assim manipular tais programas.
+
+A máquina proposta por Von Neumann reúne os seguintes componentes: (i) uma memória, (ii) uma unidade aritmética e lógica (ALU), (iii) uma unidade central de processamento (CPU), composta por diversos registradores, e (iv) uma Unidade de Controle (CU), cuja função é a mesma da tabela de controle da Máquina de Turing universal: buscar um programa na memória, instrução por instrução, e executá-lo sobre os dados de entrada.
+A Arquitetura de Harvard baseia-se em um conceito mais recente que a de Von-Neumann, tendo vindo da necessidade de por o microcontrolador para trabalhar mais rápido. É uma arquitetura de computador que se distingue das outras por possuir duas memórias diferentes e independentes em termos de barramento e ligação ao processador.
+
 
 Q5. Considere a variável inteira 'i', armazenando o valor 0x8051ABCD. Se 'i' é armazenada na memória a partir do endereço 0x0200, como ficam este byte e os seguintes, considerando que a memória é:
 	(a) Little-endian?
+	0x200 --> CD
+	0x201 --> AB
+	0x202 --> 51
+	0x203 --> 80
+
+	
 	(b) Big-endian?
+	0x200 --> 80
+	0x201 --> 51
+	0x202 --> AB
+	0x203 --> CD
+
 
 Q6. Sabendo que o processador do MSP430 tem registradores de 16 bits, como ele soma duas variáveis de 32 bits?
+
+
+
