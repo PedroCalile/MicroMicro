@@ -52,4 +52,19 @@ Q5. Considere a variável inteira 'i', armazenando o valor 0x8051ABCD. Se 'i' é
 Q6. Sabendo que o processador do MSP430 tem registradores de 16 bits, como ele soma duas variáveis de 32 bits?
 Usa-se 2 registradores para registrar a primeira variável e outros 2 registradores para registrar a segunda variável. Na sequência usa-se mais 1 registrador para realizar a soma dos 16 primeiros bits menos significativos de cada variável e mais 1 registrador para somar os 16 bits mais significativos de cada variável.
 
+Vamos chamar a primeira variável de i e a segunda de j. Seja k a soma de i + j, onde k = i + j.
+
+Colocaremos os 16 primeiros bits menos significativos de i no registrador R4 e os 16 primeiros bits menos significativos de j no registrador R5. E também, os 16 bits mais significativos de i no registrador R6 e os 16 bits mais significativos de j no registrador R7. Depois, fazemos com que R4 receba a soma de R4 e R5, de forma que R4 <= R4 + R5. 
+
+Depois fazemos que R6 receba a soma de R6 + R7 + C, onde C é o bit de carry da operação anterior, de forma que R6 <= R6 + R7 + C. 
+
+Depois atualizamos R7 caso haja carry no bit menos significativo do registrador, de forma que R7 <= 000000000000000C.
+
+Assim a soma estará armazenada da seguinte forma:
+
+
+    |     R7        |	|	R6	|   |	   R4	     |
+
+k = 000000000000000X	 XXXXXXXXXXXXXXXX    XXXXXXXXXXXXXXXX
+
 
