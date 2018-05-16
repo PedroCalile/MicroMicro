@@ -151,7 +151,8 @@ __interrupt void TIMER0_TA0_ISR(void)
 
 Já foi feito.
 
-7. Defina a função void paralelo_para_serial(void); que lê o byte de entrada via porta P1 e transmite os bits serialmente via pino P2.0.
+7. Defina a função void paralelo_para_serial(void); que lê o byte de entrada via porta P1 e 
+transmite os bits serialmente via pino P2.0.
 Comece com um bit em nivel alto, depois os bits na ordem P1.0 - P1.1 - … - P1.7 e termine com um bit em nível baixo. 
 Considere um período de 1 ms entre os bits. 
 
