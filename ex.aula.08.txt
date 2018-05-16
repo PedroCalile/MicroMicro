@@ -99,7 +99,8 @@ int main( void )
   return 0;
 }
 
-5. Escreva um código em C que acende os LEDs quando o botão é pressionado. Deixe o MSP430 em modo de baixo consumo, e habilite a interrupção do botão.
+5. Escreva um código em C que acende os LEDs quando o botão é pressionado. Deixe o MSP430 em modo de baixo consumo,
+e habilite a interrupção do botão.
 
 
 #include <msp430g2553.h>
